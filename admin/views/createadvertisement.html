@@ -1,0 +1,53 @@
+<div>
+   
+		<form  class="comments-form contact-form" name="upload_form">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Create New Advertisement</h1>
+                </div>
+                
+                <div class="col-lg-12">
+                
+                  <div class="col-lg-12">
+                
+                    <div class="form-group"> 
+                     <label for="exampleSelect1">Title</label>                       
+                      <input type="text" class="form-control" ng-model="title" placeholder="Your Name">
+                    </div>
+                   
+                    
+                 <div class="form-group">  
+                     <label for="exampleSelect1">Description</label>                      
+                      <!-- <textarea placeholder="Comment" rows="3" ng-model="description" class="form-control"></textarea> -->
+                      <textarea ng-model="description" placeholder="Comment" rows="3"  class="form-control" data-ck-editor></textarea>
+                    </div> 
+                  <p>{{progress}}</p>
+                 Image : <img style="width:100px;" ng-show="!!file" ngf-thumbnail="file || 'img/no-image-icon-6.png'"/>
+            <i ng-show="upload_form.file.$error.required">*required</i><br>
+            <i ng-show="upload_form.file.$error.maxSize">File too large 
+            {{file.size / 1000000|number:1}}MB: max 20M</i>
+					<br>
+                     <div class="form-group">                       
+                      <input type="file" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                accept="image/*"  ngf-max-size="20MB"  />
+                    </div>
+                    
+                    
+                   
+                     <button class="comment-btn btn btn-primary" ng-click="fileUploadSubmit();">Submit </button>
+                  
+                </div>
+                
+                  <!-- <div class="col-lg-6">
+                 
+                </div> -->
+                
+                 </div>
+                
+             </div>
+             </form>
+
+            <!-- ... Your content goes here ... -->
+
+        
+</div>

@@ -1,0 +1,46 @@
+<div>
+<div class="row">
+                <div class="col-lg-12">
+                 <h1 class="page-header">{{restaurantData.name}}</h1>
+                 <input type="text" ng-model="bookingDate" placeholder="Booking Date">
+                <button type="button" class="btn btn-success" ng-click="searchBookingOnClick();">View Booking</button>
+                   
+                </div>
+                
+                
+                <div class="col-lg-12">
+                
+                   
+   <div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <colgroup>
+      <col class="col-xs-1">
+      <col class="col-xs-7">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>No</th>
+         <th>No Of People</th>
+         <th>Booking Type</th>
+        <th>Status</th> 
+      </tr>
+    </thead>
+    <tbody>
+    
+    
+       <tr ng-repeat="restaurantData in restaurantDatas">
+        <th scope="row">{{$index+1}}</th>
+        <td>{{restaurantData.noOfPeople}}</td>
+        <td>{{restaurantData.typeOfBooking}}</td>
+         <td>{{restaurantData.bookingStatus}}</td>
+         
+       </tr>
+    </tbody>
+  </table>
+</div>
+                   
+                
+                 </div>
+                
+             </div>
+</div>             

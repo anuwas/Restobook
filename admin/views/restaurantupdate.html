@@ -1,0 +1,303 @@
+        <div class="row">
+        <form action="" class="comments-form contact-form">
+        	<div data-hbo-tabs id="tabs">
+		    <ul>
+		    	<li><a href="#tabs-0">Restaurant Profile</a></li>
+		        <li><a href="#tabs-1">Gallery</a></li>
+		        <li><a href="#tabs-2">Dishes</a></li>
+		        <li><a href="#tabs-3">Timing</a></li>
+		        <li><a href="#tabs-4">Meal</a></li>
+		        <li><a href="#tabs-5">Cusine</a></li>
+		    </ul>
+		<div id="tabs-0">
+		 <div class="row">                
+                <div class="col-lg-12">
+                  <div class="col-lg-6">
+                <input type="hidden" data-ng-model="restaurantData._id">
+                    <div class="form-group"> 
+                     <label for="exampleSelect1">Name </label>                       
+                      <input type="text" class="form-control" placeholder="Your Name" data-ng-model="restaurantData.name">
+                    </div>
+                    <div class="form-group">  
+                    <label for="exampleSelect1">Email</label>                        
+                      <input type="email" class="form-control" placeholder="Email" data-ng-model="restaurantData.email">
+                    </div>
+                     <div class="form-group"> 
+                     <label for="exampleSelect1">Phone</label>                         
+                      <input type="text" class="form-control" placeholder="Phone" data-ng-model="restaurantData.phno">
+                    </div>
+                     <div class="form-group"> 
+                     <label for="exampleSelect1">Address</label>                            
+                      <textarea placeholder="Address" rows="3" class="form-control" data-ng-model="restaurantData.address" ></textarea>
+                    </div>  
+                   <div class="form-group"> 
+                     <label for="exampleSelect1">PIN</label>                         
+                      <input type="text" class="form-control" placeholder="PIN" data-ng-model="restaurantData.pincode">
+                    </div>
+                     <div class="form-group"> 
+                     <label for="exampleSelect1">Latitude</label>                         
+                      <input type="text" class="form-control" readonly="readonly" placeholder="Latitude" data-ng-model="restaurantData.latitude" data-ng-blur="">
+                    </div>
+                     <div class="form-group"> 
+                     <label for="exampleSelect1">Longitude</label>                         
+                      <input type="text" class="form-control" readonly="readonly" placeholder="Longitude"  data-ng-model="restaurantData.longitude">
+                    </div>
+                    <div class="form-group">        
+                      <button class="comment-btn btn btn-primary " data-ng-click="generateLatitudeLongitude()">Click here to generate latitude and longitude </button>
+                    </div>
+                    
+                    <div class="form-group"> 
+                     <label for="exampleSelect1">Image Name</label>                         
+                      <input type="text" class="form-control"  placeholder="Image Name" data-ng-model="restaurantData.imageName">
+                    </div>
+                    <div class="form-group"> 
+                     <label for="exampleSelect1">Image Path</label>                         
+                      <input type="text" class="form-control" readonly="readonly" placeholder="Image Path" data-ng-model="restaurantData.imagePath">
+                    </div>
+                    <div class="form-group"> 
+                     <label for="exampleSelect1">Image Securpath</label>                         
+                      <input type="text" class="form-control" readonly="readonly" placeholder="Image Securepath" data-ng-model="restaurantData.imageSecurePath">
+                    </div>
+                </div>
+                
+                  <div class="col-lg-6">
+                 	<div class="form-group"> 
+                     <label for="exampleSelect1">Website</label>                         
+                      <input type="text" class="form-control" placeholder="Website" data-ng-model="restaurantData.website">
+                    </div>
+                    <div class="form-group"> 
+                     <label for="exampleSelect1">Youtube</label>                       
+                      <input type="text" class="form-control" placeholder="Youtube Link" data-ng-model="restaurantData.linkYoutube">
+                    </div>
+                    <div class="form-group">  
+                    <label for="exampleSelect1">Facebook</label>                        
+                      <input type="text" class="form-control" placeholder="Facebook Link" data-ng-model="restaurantData.linkFacebook">
+                    </div>
+                     <div class="form-group"> 
+                     <label for="exampleSelect1">Twitter</label>                         
+                      <input type="text" class="form-control" placeholder="Twitter Link" data-ng-model="restaurantData.linkTwitter">
+                    </div>
+                    <div class="form-group"> 
+                     <label for="exampleSelect1">Instagram</label>                         
+                      <input type="text" class="form-control" placeholder="Instagram Link" data-ng-model="restaurantData.linkIntsagram">
+                    </div>
+                    <div class="form-group"> 
+                     <label for="exampleSelect1">Pinterest</label>                         
+                      <input type="text" class="form-control" placeholder="Pinterest Link" data-ng-model="restaurantData.linkPinterest">
+                    </div>
+                    <div class="form-group"> 
+                     <label for="exampleSelect1">Image</label>         
+                     <a class="fancybox thumbnail" rel="ligthbox" href="{{restaurantData.imageSecurePath}}" target="_blank">                
+                      <img class="img-responsive" alt="" ng-src="{{restaurantData.imagePath}}" />
+                      </a>
+                    </div>
+                    <div id="direct_upload" ngf-drop="uploadRestaurantImageFiles($files)" ngf-drag-over-class="dragOverClass($event)" ng-model="files" ng-multiple="true">
+		        <form>
+		            <div class="form_line">
+		                <div class="form_controls">
+		                    <div class="upload_button_holder">
+		                        <!-- <div href="#" class="button" style="width:150px;">Upload</div> -->
+		                        <button class="comment-btn btn btn-primary " ngf-select="uploadRestaurantImageFiles($files)"  title="upload" resetOnClick="true" >Upload Image</button>
+		                    </div>
+		                </div>
+		                <br>
+		            </div>
+		        </form>
+    		</div>
+                     <button class="comment-btn btn btn-primary " data-ng-click="updateRestaurantOnClick(restaurantData._id)">Submit </button>
+                </div>
+                 </div>
+             </div>
+		    </div>
+		    <div id="tabs-1">
+		    <div style="margin-bottom: 10px;float: right;">
+		    <div id="direct_upload" ngf-drop="uploadGalleryImageFiles($files)" ngf-drag-over-class="dragOverClass($event)" ng-model="files" ng-multiple="true">
+		        <form>
+		            <div class="form_line">
+		                <div class="form_controls">
+		                    <div class="upload_button_holder">
+		                        <!-- <div href="#" class="button" style="width:150px;">Upload</div> -->
+		                        <button class="comment-btn btn btn-primary " ngf-select="uploadGalleryImageFiles($files)" multiple title="upload" resetOnClick="true" >Upload Image</button>
+		                    </div>
+		                </div>
+		                <br>
+		            </div>
+		        </form>
+    		</div>
+		    
+		    </div>
+		        <table class="table table-bordered table-striped">
+		        
+		       
+			       <tr data-ng-repeat="photoGallery in photoGallerys">
+			        <td style="width: 25%">
+			            		<div class='row-sm-4 row-xs-6 row-md-3 row-lg-3'>
+			                		<a class="fancybox thumbnail" rel="ligthbox" href="{{photoGallery.imageSecurePath}}" target="_blank">
+			                    		<img class="img-responsive" alt="" ng-src="{{photoGallery.imagePath}}" />
+			                		</a>
+			            		</div> 
+					</td>
+					<td>
+						<button type="button" class="btn btn-success" ng-click="restaurantsGaalleryImageDelete($index);">Delete</button>
+						<div style="margin-top: 10px;">
+							
+						</div>
+						<div class="form-group">  
+                    		<label for="exampleSelect1">Description</label>                        
+                      		<input type="text"  class="form-control" placeholder="Description" data-ng-model="photoGallery.description">
+                    	</div>
+                    	<div class="form-group">  
+                    		<label for="exampleSelect1">Image Path</label>                        
+                      		<input type="text" readonly="readonly" class="form-control" placeholder="Image Path" data-ng-model="photoGallery.imagePath">
+                    	</div>
+                    	<div class="form-group">  
+                    		<label for="exampleSelect1">Secure Path</label>                        
+                      		<input type="text" readonly="readonly" class="form-control" placeholder="Secure Path" data-ng-model="photoGallery.imageSecurePath">
+                    	</div>
+					</td>
+			       </tr>
+		  		</table>
+		    </div>
+		    <div id="tabs-2">
+		        <table class="table table-bordered table-striped">
+			       <tr data-ng-repeat="itemDishes in itemDishess">
+			        <td style="border: 1px solid;">
+						<table style="width: 50%">
+				            <tr>
+				              <td><label for="exampleSelect1">Dish Type</label> </td>
+				              <td>:</td>
+				              <td ><input type="text" class="form-control" placeholder="Website" data-ng-model="itemDishes.dishType" style="margin: 10px;"></td>
+				            </tr>
+				            <tr>
+				              <td><label for="exampleSelect1">Menu Type</label></td>
+				              <td>:</td>
+				              <td ><input type="text" class="form-control" placeholder="Website" data-ng-model="itemDishes.menuType" style="margin: 10px;"></td>
+				            </tr>
+				             <tr>
+				              <td><label for="exampleSelect1">Spice Type</label></td>
+				              <td>:</td>
+				              <td><input type="text" class="form-control" placeholder="Website" data-ng-model="itemDishes.spiceType" style="margin: 10px;"></td>
+				            </tr>
+				             <tr>
+				              <td><label for="exampleSelect1">Veg NonVeg Type</label></td>
+				              <td>:</td>
+				              <td><input type="text" class="form-control" placeholder="Website" data-ng-model="itemDishes.vegNonVegType" style="margin: 10px;"></td>
+				            </tr>
+				            <tr>
+				              <td><label for="exampleSelect1">Dish Name</label></td>
+				              <td>:</td>
+				              <td><input type="text" class="form-control" placeholder="Website" data-ng-model="itemDishes.dishName" style="margin: 10px;"></td>
+				            </tr>
+				             <tr>
+				              <td><label for="exampleSelect1">Price</label></td>
+				              <td>:</td>
+				              <td><input type="text" class="form-control" placeholder="Website" data-ng-model="itemDishes.price" style="margin: 10px;"></td>
+				            </tr>
+				            <tr>
+				              <td><label for="exampleSelect1">Description</label></td>
+				              <td>:</td>
+				              <td><input type="text" class="form-control" placeholder="Website" data-ng-model="itemDishes.description" style="margin: 10px;"></td>
+				            </tr>
+			          </table>
+					</td>
+			       </tr>
+			       <tr>
+			       <td>
+			       	<button class="comment-btn btn btn-primary " data-ng-click="updateDishesRestaurantOnClick(restaurantData._id)">Submit </button>
+			       </td>
+			       </tr>
+		  		</table>
+		    </div>
+		    <div id="tabs-3">
+		        <table class="table table-bordered table-striped">
+			       <tr data-ng-repeat="timingsAvailabilityList in timingsAvailabilityLists">
+			        <td style="border: 1px solid;">
+						<table style="width: 50%">
+				            <tr>
+				              <td><label for="exampleSelect1">{{timingsAvailabilityList.text}}</label> </td>
+				              <td>:</td>
+				              <td >
+				              <select data-ng-model="timingsAvailabilityList.checked" class="form-control" style="margin: 10px;">
+				              <option value=true data-ng-selected="{{true== timingsAvailabilityList.checked}}">Open</option>
+				              <option value=false data-ng-selected="{{false== timingsAvailabilityList.checked}}">Close</option>
+				              </select></td>
+				            </tr>
+				            <tr>
+				              <td><label for="exampleSelect1">Start Time</label></td>
+				              <td>:</td>
+				              <td ><input type="text" class="form-control" placeholder="Website" data-ng-model="timingsAvailabilityList.timeStarts" style="margin: 10px;"></td>
+				            </tr>
+				             <tr>
+				              <td><label for="exampleSelect1">End Time</label></td>
+				              <td>:</td>
+				              <td><input type="text" class="form-control" placeholder="Website" data-ng-model="timingsAvailabilityList.timeEnds" style="margin: 10px;"></td>
+				            </tr>
+			          </table>
+					</td>
+			       </tr>
+			       <tr>
+			       <td>
+			       	<button class="comment-btn btn btn-primary " data-ng-click="updateTimingRestaurantOnClick(restaurantData._id)">Submit </button>
+			       </td>
+			       </tr>
+		  		</table>
+		    </div>
+		    <div id="tabs-4">
+		        <table class="table table-bordered table-striped">
+			       <tr data-ng-repeat="mealAvailabilityList in mealAvailabilityLists">
+			        <td style="border: 1px solid;">
+						<table style="width: 50%">
+				            <tr>
+				              <td style="width: 30%"><label for="exampleSelect1">{{mealAvailabilityList.text}}</label> </td>
+				              <td>:</td>
+				              <td >
+				              <select data-ng-model="mealAvailabilityList.checked" class="form-control" style="margin: 10px;">
+				              <option value=true data-ng-selected="{{true== mealAvailabilityList.checked}}">Avaliable</option>
+				              <option value=false data-ng-selected="{{false== mealAvailabilityList.checked}}">Not Avaliable</option>
+				              </select></td>
+				            </tr>
+			          </table>
+					</td>
+			       </tr>
+			       <tr>
+			       <td>
+			       	<button class="comment-btn btn btn-primary " data-ng-click="updateMealRestaurantOnClick(restaurantData._id)">Submit </button>
+			       </td>
+			       </tr>
+		  		</table>
+		    </div>
+		    <div id="tabs-5">
+		        <table class="table table-bordered table-striped">
+			       <tr data-ng-repeat="cuisineType in cuisineTypes">
+			        <td style="border: 1px solid;">
+						<table style="width: 50%">
+				            <tr>
+				              <td style="width: 30%"><label for="exampleSelect1">{{cuisineType.text}}</label> </td>
+				              <td>:</td>
+				              <td >
+				              <select data-ng-model="cuisineType.checked" class="form-control" style="margin: 10px;">
+				              <option value=true data-ng-selected="{{true== cuisineType.checked}}">Avaliable</option>
+				              <option value=false data-ng-selected="{{false== cuisineType.checked}}">Not Avaliable</option>
+				              </select></td>
+				            </tr>
+			          </table>
+					</td>
+			       </tr>
+			       <tr>
+			       <td>
+			       	<button class="comment-btn btn btn-primary " data-ng-click="updateCuisineestaurantOnClick(restaurantData._id)">Submit </button>
+			       </td>
+			       </tr>
+		  		</table>
+		    </div>
+		</div>
+     </form>
+    </div>
+    <style>
+   #tabs {
+  width: 100%;
+   margin-top: 25px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>

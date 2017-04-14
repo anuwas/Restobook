@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Restobook -  Admin Panel</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="css/metisMenu.min.css" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="css/timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/startmin.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="css/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/themes/base/jquery-ui.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    
+    <script src="js/jquery.min.js"></script>
+	<script src="lib/jquery/ui/jquery-ui.js"></script> 
+	
+  <script src="lib/angular/angular.min.js"></script>
+	<script src="lib/angular-route/angular-route.min.js"></script>
+	
+	<script src="js/services/ProductService.js"></script>
+	<script src="js/services/CustomerService.js"></script>
+	
+	<script src="js/controllers/RestaurantsCtrl.js"></script>
+	<script src="js/controllers/CustomerCtrl.js"></script>
+	<script src="js/controllers/DashBoardCtrl.js"></script>
+    <script src="js/controllers/BookingCtrl.js"></script>
+    <script src="js/controllers/OnlineOrderCtrl.js"></script>
+	
+	<script src="js/controllers/EmployeeCtrl.js"></script>
+	<script src="js/controllers/AdvertisementCtrl.js"></script>
+	<script src="js/services/RestaurantService.js"></script>
+	
+	
+	<script src="js/appDirectives.js"></script>
+	<script src="js/appRoutes.js"></script>
+	<script src="js/app.js"></script>
+	
+	<!--  cloudinary and ng upload lib files -->
+	<script src="lib/cloudinary/lodash.min.js"></script>
+	<script src="lib/cloudinary/cloudinary-core.min.js"></script>
+	<script src="lib/cloudinary/angular.cloudinary.js"></script>
+    <script type="text/javascript" src="lib/angular-fileupload/ng-file-upload.min.js"></script>
+	<script type="text/javascript" src="lib/angular-fileupload/ng-file-upload-shim.min.js"></script>
+	
+  <script src="lib/ckeditor/ckeditor.js"></script>
+  <script src="lib/ckeditor/ng-ckeditor.min.js"></script>
+  
+  
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCcG7ApUgAxoUW2VEJU8KERGzfMArsCZlo"></script>
+<script type="text/javascript" src="lib/ng-google-chart.js"></script>
+</head>
+<body ng-app="RestobookApp" ng-controller="DashboardController">
+
+<div id="wrapper" >
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/"><img src="img/logo.png" style="margin-top:-12px;"></a>
+        </div>
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+        <!-- Top Navigation: Left Menu -->
+        <ul class="nav navbar-nav navbar-left navbar-top-links">
+            <li><a href="#/"><i class="fa fa-home fa-fw"></i> Website</a></li>
+        </ul>
+
+        <!-- Top Navigation: Right Menu -->
+        <ul class="nav navbar-right navbar-top-links">
+            <li class="dropdown navbar-inverse">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
+                    <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-alerts">
+                    <li>
+                        <a href="javascript:void(0)">
+                            <div>
+                                <i class="fa fa-comment fa-fw"></i> New Comment
+                                <span class="pull-right text-muted small">4 minutes ago</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="javascript:void(0)">
+                            <strong>See All Alerts</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
+                    <i class="fa fa-user fa-fw"></i> Welcome Admin <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="javascript:void(0)"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    </li>
+                    <li><a href="javascript:void(0)"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="javascript:void(0)" ng-click="LogoutClick()"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Sidebar -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+
+                <ul class="nav" id="side-menu">
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                        </div>
+                    </li>
+                    <li><a href="#/" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
+                    <li><a href="#/restaurants"><i class="fa fa-image" aria-hidden="true"></i> Restaurants</a></li>
+                     <li><a href="#/customers"> <i class="fa fa-desktop" aria-hidden="true"></i> Customers</a></li>
+                     <li><a href="#/advertisement"><i class="fa fa-image" aria-hidden="true"></i> Advertisements management</a></li>
+                     <li><a href="javascript:void(0)"><i class="fa fa-bars" aria-hidden="true"></i> Suggestion Box</a></li>
+                     <li><a href="javascript:void(0)"><i class="fa fa-bars" aria-hidden="true"></i> Dispute report</a></li>
+                     <li><a href="#/customer-feedbacks"><i class="fa fa-group" aria-hidden="true"></i> Customer Feedback</a></li>
+                     
+                    <li><a href="#/bookings"> <i class="fa fa-desktop" aria-hidden="true"></i> Bookings</a></li>
+                    <li><a href="#/onlineorder"> <i class="fa fa-desktop" aria-hidden="true"></i> Order Manages</a></li>
+                    <!--                   
+                    <li><a href="#"><i class="fa fa-group" aria-hidden="true"></i> Manage Client</a></li>
+                   <li><a href="#"><i class="fa fa-clone" aria-hidden="true"></i> Reservation</a></li>
+                    <li><a href="#"><i class="fa fa-send" aria-hidden="true"></i> Newsletter</a></li>
+                    <li><a href="#"><i class="fa fa-folder" aria-hidden="true"></i> Histry</a></li> -->
+                 </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+   
+    <div id="page-wrapper">
+        <div class="container-fluid">
+<div ng-view></div>
+ </div>
+ 			
+            <!-- ... Your content goes here ... -->
+        
+    </div>
+
+</div>
+
+<!-- jQuery -->
+<!--  -->
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Metis Menu Plugin JavaScript -->
+<script src="js/metisMenu.min.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="js/startmin.js"></script>
+
+</body>
+</html>

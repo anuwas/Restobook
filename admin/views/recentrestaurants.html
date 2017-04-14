@@ -1,0 +1,51 @@
+<div>
+<div class="row">
+                <div class="col-lg-12">
+                 <h1 class="page-header">Recent Restaurants </h1>
+                 <input type="text" ng-model="search" placeholder="Search">
+                
+                   
+                </div>
+                
+                
+                <div class="col-lg-12">
+                
+                   
+   <div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <colgroup>
+      <col class="col-xs-1">
+      <col class="col-xs-2">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>No</th>
+         <th>Name</th>
+         <th>Address</th>
+        <th>Phone</th> 
+        <th>Detail</th>
+        <th>Booking</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+    
+       <tr ng-repeat="rertaurant in restaurants | filter:search">
+        <th scope="row">{{$index+1}}</th>
+        <td>{{rertaurant.name}}</td>
+        <td>{{rertaurant.address}}</td>
+         <td>{{rertaurant.phno}}</td>
+         <td><button type="button" class="btn btn-success" ng-click="restaurantsViewMoreOnClick(rertaurant._id);">View Detail</button></td>
+         <td>
+         <button type="button" class="btn btn-success" ng-click="restaurantsViewBookingeOnClick(rertaurant._id);">View Booking</button>
+         </td>
+       </tr>
+    </tbody>
+  </table>
+</div>
+                   
+                
+                 </div>
+                
+             </div>
+</div>             

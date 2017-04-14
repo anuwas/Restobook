@@ -1,0 +1,46 @@
+<div>
+<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Online Order</h1>
+                </div>
+                
+                <div class="col-lg-12">
+                
+                   
+   <div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <colgroup>
+      <col class="col-xs-1">
+      <col class="col-xs-2">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>No</th>
+         <th>Name</th>
+        <th>Booking Date</th> 
+        <th>Payment Status</th> 
+        <th>Delivery Address</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+    
+    
+       <tr ng-repeat="onlineorder in onlineorders">
+        <th scope="row">{{$index+1}}</th>
+        <td>{{onlineorder.restaurantName}}</td>
+         <td>{{onlineorder.dateTime}}</td>
+         <td>{{onlineorder.paymentStatus}}</td>
+         <td>{{onlineorder.deliveryAddress}}</td>
+         <td><button type="button" class="btn btn-success">Detail</button></td>
+       </tr>
+       
+    </tbody>
+  </table>
+</div>
+                   
+                
+                 </div>
+                
+             </div>
+</div>             

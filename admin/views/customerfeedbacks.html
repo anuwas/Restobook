@@ -1,0 +1,49 @@
+<div>
+<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Customer Feedbacks</h1>
+                </div>
+                
+                <div class="col-lg-12">
+                
+                   
+   <div class="table-responsive">
+   <div class="form-group">                         
+        <input type="text" data-ng-model="feedbackSearch" class="form-control_feedbaksrc" style="width: 25%;" placeholder="Search" datepicker>
+        <!-- <input type="text"  ng-model="myobj.myvalue" /> -->
+   </div>
+  <table class="table table-bordered table-striped">
+    <colgroup>
+      <col class="col-xs-1">
+      <col class="col-xs-4">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Comment</th> 
+        <th>Rating</th> 
+        <th>Date</th>
+        <th>Customer</th>
+        <th>Email</th>         
+      </tr>
+    </thead>
+    <tbody>
+       <tr data-ng-repeat="customersFeedback in customersFeedbacks | filter:feedbackSearch">
+        <th scope="row">{{$index+1}}</th>
+        <td>{{customersFeedback.title}}</td>
+        <td>{{customersFeedback.rating}}</td>
+        <td>{{customersFeedback.createdAt}}</td>
+        <td>{{customersFeedback.customerName}}</td>
+         <td>{{customersFeedback.customerEmail}}</td>
+         
+       </tr>
+       
+    </tbody>
+  </table>
+</div>
+                   
+                
+                 </div>
+                
+             </div>
+</div>             

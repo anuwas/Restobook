@@ -1,0 +1,46 @@
+<div>
+<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Top Order Customers</h1>
+                </div>
+                
+                <div class="col-lg-12">
+                
+                   
+   <div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <colgroup>
+      <col class="col-xs-1">
+      <col class="col-xs-2">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>No</th>
+         <th>Name</th>
+        <th>Username</th> 
+        <th>Total</th> 
+         <th>Online Order</th> 
+        <th>Restaurant Booking</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+       <tr ng-repeat="customer in bookigOrderData">
+        <th scope="row">{{$index+1}}</th>
+        <td>{{customer.customerName}}</td>
+         <td>{{customer.usrName}}</td>
+         <td>{{customer.total}}</td>
+         <td>{{customer.order}}</td>
+         <td>{{customer.booking}}</td>
+         <td><button type="button" class="btn btn-success" ng-click="customerDetailOnClick(customer.customerId)">Detail</button></td>
+       </tr>
+       
+    </tbody>
+  </table>
+</div>
+                   
+                
+                 </div>
+                
+             </div>
+</div>             

@@ -1,0 +1,47 @@
+
+<div>
+<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Advertisement</h1>
+                </div>
+                
+                <div class="col-lg-12">
+                
+                   
+   <div class="table-responsive">
+  <table class="table table-bordered table-striped">
+    <colgroup>
+      <col class="col-xs-1">
+      <col class="col-xs-2">
+      <col class="col-xs-4">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>No</th>
+         <th>Title</th>
+        <th>Description</th> 
+        <th>Image</th> 
+        <th><button type="button" class="btn btn-success" ng-click="newAdvertisement();">New Advertisement</button></th>
+      </tr>
+    </thead>
+    <tbody>
+       <tr ng-repeat="advertisement in advertisementsList">
+        <th scope="row">{{$index+1}}</th>
+        <td>{{advertisement.title}}</td>
+         <td ng-bind-html="advertisement.description"></td>
+         <td><img ng-src="{{advertisement.image}}" width="100"></td>
+         
+         <td><button type="button" class="btn btn-success" ng-click="editAdvertisement(advertisement._id)">Edit</button>
+         <button type="button" class="btn btn-success" ng-click="removeAdvertisement(advertisement._id)">Delete</button>
+         </td>
+       </tr>
+       
+    </tbody>
+  </table>
+</div>
+                   
+                
+                 </div>
+                
+             </div>
+</div>             

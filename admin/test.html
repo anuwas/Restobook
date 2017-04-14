@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<script src="lib/angular/angular.min.js"></script>
+<script src="lib/angular-route/angular-route.min.js"></script>
+<script src="js/controllers/DashBoardCtrl.js"></script>
+<script src="js/appRoutes.js"></script>
+<script src="js/app.js"></script>
+<body ng-app="RestobookApp" ng-controller="DashboardController">
+
+<p><a href="#/">Main</a></p>
+
+<a href="#london">City 1</a>
+<a href="#paris">City 2</a>
+
+<p>Click on the links.</p>
+
+<p>Note that each "view" has its own controller which each gives the "msg" variable a value.</p>
+
+<div ng-view></div>
+
+
+</body>
+<script>
+
+/* angular.module('RestobookApp', ["ngRoute"]).config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "views/dashboard.html",
+    })
+    .when("/london", {
+        templateUrl : "london.htm",
+        controller : "londonCtrl"
+    })
+    .when("/paris", {
+        templateUrl : "paris.htm",
+        controller : "parisCtrl"
+    });
+}); 
+ */
+
+</script>
+<script src="js/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Metis Menu Plugin JavaScript -->
+<script src="js/metisMenu.min.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="js/startmin.js"></script>
+</html>
+

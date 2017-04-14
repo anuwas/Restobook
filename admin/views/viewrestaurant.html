@@ -1,0 +1,252 @@
+<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">{{restaurantData.name}}</h1>
+                    <div ><img ng-src="{{restaurantData.imageData}}" style="width: 100px"/></div>
+                </div>
+                
+                <div class="col-lg-12">
+                
+                   
+   <div class="table-responsive">
+     <div id="testtab">
+  	<div >
+    <div id="tabs">
+        <ul class="tabUL">
+            <li ng-repeat="tab in tabs" class="tabLI"
+                ng-class="{active:isActiveTab(tab.url)}" 
+                ng-click="onClickTab(tab)">{{tab.title}}</li>
+        </ul>
+        <div id="mainView">
+            <div ng-include="currentTab"></div>
+        </div>
+    </div>
+    <script type="text/ng-template" id="Restaurant_Profile_Details.tpl.html">
+		<div id="viewOne">
+		<div style="float:left"><h3>Restaurant Profile Details</h3></div>
+		<div style="float:right"><a href="javascript:void(0)" style="text-decoration:none">Edit</a></div>
+		
+			  <table class="table table-bordered table-striped">
+    <colgroup>
+      <col class="col-xs-1">
+      <col class="col-xs-7">
+    </colgroup>
+    
+    <tbody>
+       
+       <tr>
+         <td>Address</td>
+          <td>{{restaurantData.address}}, PIN {{restaurantData.pincode}}</td>
+       </tr>
+      <tr>
+         <td>Phone</td>
+          <td>{{restaurantData.phno}}</td>
+       </tr>
+       <tr>
+         <td>Email</td>
+          <td>{{restaurantData.email}}</td>
+       </tr>
+       <tr>
+         <td>Website</td>
+          <td>{{restaurantData.website}}</td>
+       </tr>
+       <tr>
+         <td>Youtube</td>
+          <td>{{restaurantData.linkYoutube}}</td>
+       </tr>
+       <tr>
+         <td>Facebook</td>
+          <td>{{restaurantData.linkFacebook}}</td>
+       </tr>
+       <tr>
+         <td>Twitter</td>
+          <td>{{restaurantData.linkTwitter}}</td>
+       </tr>
+        <tr>
+         <td>Instagram</td>
+          <td>{{restaurantData.linkIntsagram}}</td>
+       </tr>
+       <tr>
+         <td>Pinterest</td>
+          <td>{{restaurantData.linkPinterest}}</td>
+       </tr>
+    </tbody>
+  </table>
+		</div>
+	</script>
+		<script type="text/ng-template" id="Reservation_Statistics.tpl.html">
+		<div id="viewTwo">
+			<h3>Reservation Statistics</h3>
+			<p></p>
+<div google-chart chart="chart" style="{{chart.cssStyle}}"/>
+		</div>
+	</script>
+	
+	<script type="text/ng-template" id="Restaurant_gallery.tpl.html">
+		<div id="viewThree">
+			<h3>Gallery</h3>
+			<p></p>
+	<table class="table table-bordered table-striped">
+    <colgroup>
+      <col class="col-xs-1">
+      <col class="col-xs-7">
+    </colgroup>
+    
+    <tbody>
+		<tr>
+          <td>
+			<div class="row">
+				<div class='list-group gallery' ng-repeat="photoGallery in photoGallerys">
+            		<div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
+                		<a class="fancybox thumbnail" rel="ligthbox" href="{{photoGallery.imageSecurePath}}" target="_blank">
+                    		<img class="img-responsive" alt="" ng-src="{{photoGallery.imagePath}}" />
+                		</a>
+            		</div> 
+        		</div>
+			</div> ​
+          </td>
+       </tr>
+ </tbody>
+  </table>
+		</div>
+	</script>
+	<script type="text/ng-template" id="Restaurant_dishes.tpl.html">
+		<div id="viewFour">
+			<h3>Dishes</h3>
+			<p></p>
+			 <ul ng-repeat="itemDishes in itemDishess">
+          <li>
+          <table width="50%">
+            <tr>
+              <td>Dish Avaliable</td>
+              <td>:</td>
+              <td>{{itemDishes.dishAvailable}}</td>
+            </tr>
+            <tr>
+              <td>Dish Type</td>
+              <td>:</td>
+              <td>{{itemDishes.dishType}}</td>
+            </tr>
+             <tr>
+              <td>Dish Name</td>
+              <td>:</td>
+              <td>{{itemDishes.dishType}}</td>
+            </tr>
+            <tr>
+              <td>Description</td>
+              <td>:</td>
+              <td>{{itemDishes.description}}</td>
+            </tr>
+          </table>
+            
+          </li>
+          </ul>
+		</div>
+	</script>
+	<script type="text/ng-template" id="Restaurant_timing.tpl.html">
+		<div id="viewFive">
+			<h3>Timing Avaliablity</h3>
+			<p></p>
+			<table width="50%">
+			<tr ng-repeat="timingsAvailabilityList in timingsAvailabilityLists">
+          <td>
+            <div >
+            <div style="margin-left: 5px;padding:4px;border: 1px solid black">
+              {{timingsAvailabilityList.text}} - <span>{{timingsAvailabilityList.checked==true ? 'Open' : 'Close'}}</span>
+            </div>
+          </div>​
+          </td>
+       </tr> 
+		<tr>
+			<td>&nbsp;</td>
+		</tr> 
+		</table>
+		</div>
+	</script>
+		<script type="text/ng-template" id="Restaurant_meal.tpl.html">
+		<div id="viewSix">
+			<h3>Meal Avaliablity</h3>
+			<p></p>
+			<table width="50%">
+       <tr ng-repeat="mealAvailabilityList in mealAvailabilityLists">
+          <td>
+            <div >
+            <div style="margin-left: 5px;padding:4px;border: 1px solid black">
+              {{mealAvailabilityList.text}} - <span>{{mealAvailabilityList.checked ==true ? 'Avaliable' : 'Not Avaliable'}}</span>
+            </div>
+          </div>​
+          </td>
+       </tr>
+		</div>
+		</table>
+	</script>
+	<script type="text/ng-template" id="Restaurant_cusine.tpl.html">
+		<div id="viewSeven">
+			<h3>Cuisine Type</h3>
+			<p></p>
+				<table width="50%">
+					<tr ng-repeat="cuisineType in cuisineTypes">
+          				<td>
+            				<div >
+            				<div style="margin-left: 5px;padding:4px;border: 1px solid black">
+              				{{cuisineType.text}} - <span>{{cuisineType.checked == true ? 'Avaliable' : 'Not Avaliable'}}</span>
+            				</div>
+          				</div>​
+          </td>
+       </tr>  
+			</table>
+		</div>
+	</script>
+	<script type="text/ng-template" id="Take_Away_Statistics.tpl.html">
+		<div id="viewEight">
+			<h3>Take Away Statistics</h3>
+			<p></p>
+		</div>
+	</script>
+
+	
+	<script type="text/ng-template" id="Pickup_Order_Statistics.tpl.html">
+		<div id="viewNine">
+			<h3>Pickup Order Statistics</h3>
+			<p></p>
+		</div>
+	</script>
+	<br>
+	</div>
+  </div>
+  
+
+
+</div>
+                   
+                
+                 </div>
+                
+             </div>
+<style>
+   .tabUL {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+	}
+	
+.tabLI {
+    float: left;
+    border: 1px solid #000;
+    border-bottom-width: 0;
+    margin: 3px 3px 0px 0px;
+    padding: 5px 5px 0px 5px;
+    background-color: #CCC;
+    color: #696969;
+}
+
+#mainView {
+    border: 1px solid black;
+	clear: both;
+	padding: 0 1em;
+}
+
+.active {
+    background-color: #FFF;
+    color: #000;
+}
+</style>

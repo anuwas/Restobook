@@ -1,0 +1,91 @@
+<div class="row">
+      <div class="col-lg-12">
+          <h1 class="page-header">{{customerDetail.profile[0].name}}</h1>
+          <div ><img ng-src="{{restaurantData.imageData}}" style="width: 100px"/></div>
+      </div>
+       <div class="col-lg-12">   
+		<div data-hbo-tabs id="tabs">
+		    <ul>
+		    	<li><a href="#tabs-0">Customer Profile</a></li>
+		        <li><a href="#tabs-1">Booking History</a></li>
+		        <li><a href="#tabs-2">Order History</a></li>
+		        <li><a href="#tabs-3">Points</a></li>
+		        <li><a href="#tabs-4">Review</a></li>
+		    </ul>
+		     <div id="tabs-0">
+		   <div class="table-responsive">
+		  <table class="table table-bordered table-striped">
+		       <tr>
+		        <td>Name</td><td>{{customerDetail.profile[0].name}}</td>
+		       </tr>
+		        <tr>
+		        <td>Email</td><td>{{customerDetail.profile[0].email}}</td>
+		       </tr>
+		        <tr>
+		        <td>Phone</td><td>{{customerDetail.profile[0].phone}}</td>
+		       </tr>
+		  </table>
+		</div>
+		    </div>
+		    <div id="tabs-1">
+		        <table class="table table-bordered table-striped">
+			       <tr>
+			        <td>Total Booking</td>
+			        <td>{{customerDetail.booking}}</td>
+			       </tr>
+		  		</table>
+		    </div>
+		    <div id="tabs-2">
+		        <table class="table table-bordered table-striped">
+			       <tr>
+			        <td>Total Order</td>
+			        <td>{{customerDetail.order}}</td>
+			       </tr>
+		  		</table>
+		    </div>
+		    <div id="tabs-3">
+		        <div id="tabs-2">
+		        <table class="table table-bordered table-striped">
+			       <tr>
+			        <td>Total Points</td>
+			        <td>{{customerDetail.points[0].totalPoint}}</td>
+			       </tr>
+		  		</table>
+		    </div>
+		    </div>
+		    <div id="tabs-4">
+		        <div class="table-responsive">
+				  <table class="table table-bordered table-striped">
+				    <colgroup>
+				      <col class="col-xs-1">
+				      <col class="col-xs-2">
+				      <col class="col-xs-4">
+				    </colgroup>
+				    <thead>
+				      <tr>
+				        <th>No</th>
+				         <th>Restaurant</th>
+				        <th>Rating</th> 
+				      </tr>
+				    </thead>
+				    <tbody>
+				       <tr ng-repeat="reviews in customerDetail.review">
+				        <th scope="row">{{$index+1}}</th>
+				        <td>{{reviews.restaurantName}}</td>
+				         <td>{{reviews.rating}}</td>
+				       </tr>
+				    </tbody>
+				  </table>
+				</div>
+		    </div>
+		</div>
+	</div>
+</div>
+<style>
+   #tabs {
+   /* width: 95%;
+   margin-top: 10px; */
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
